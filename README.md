@@ -1,6 +1,6 @@
 # Automation with Ansible
 ```
-*Vagrant Basics*
+Vagrant Basics
 Ansible Basics
 Establish SSH Trust
 Ansible Playbooks
