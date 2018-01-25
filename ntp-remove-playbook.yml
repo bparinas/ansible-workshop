@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  remote_user: ubuntu
+
+  tasks:
+
+  - name: remove ntp
+    apt: name=ntp state=absent

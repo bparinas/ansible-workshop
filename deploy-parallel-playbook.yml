@@ -1,0 +1,13 @@
+---
+
+#common
+- hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  remote_user: ubuntu
+
+  tasks:
+
+  - name: sleep for 5 seconds
+    shell: /bin/sleep 5

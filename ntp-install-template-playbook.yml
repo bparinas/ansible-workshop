@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  remote_user: ubuntu
+
+  vars:
+    noc_ntpserver: 0.asia.pool.ntp.org
+
+  tasks:
+
+  - name: install ntp
+    apt: name=ntp state=installed update_cache=yes
+
+  - name: write our ntp.conf
+    template: src=/home/ubuntu/files/ntp.conf.j2 dest=/etc/ntp.conf mode=644 owner=root group=root
+    notify: restart ntp
+
+  - name: start ntp
+    service: name=ntp state=started
+
+  handlers:
+
+  - name: restart ntp
+    service: name=ntp state=restarted

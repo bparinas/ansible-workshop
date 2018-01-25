@@ -1,0 +1,29 @@
+---
+
+#common
+- hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  remote_user: ubuntu
+
+  roles: 
+  - common
+
+#web
+- hosts: web
+  become: yes
+  become_method: sudo
+  remote_user: ubuntu
+
+  roles:
+  - web
+
+#load balancer
+- hosts: lb
+  become: yes
+  become_method: sudo
+  remote_user: ubuntu
+
+  roles:
+  - lb

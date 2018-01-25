@@ -1,0 +1,15 @@
+---
+
+#common
+- hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  remote_user: ubuntu
+  #number of host per rolling updates
+  serial: 1
+
+  tasks:
+
+  - name: sleep for 5 seconds
+    shell: /bin/sleep 5
